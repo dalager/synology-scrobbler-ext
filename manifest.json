@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Synology Scrobbler",
+  "version": "2.0",
+  "description": "Sends your listening habits from your Synology Audio Station player to Last.FM",
+  "homepage_url":"http://synologyscrobbler.apphb.com",
+  "options_page": "options.html",
+  "background" : {
+    "page": "background.html",
+    "persistent":false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js" : ["contentscript.js","jquery-1.5.1.min.js"]
+    }
+  ],
+
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+  "browser_action": {
+    "default_title": "Synology scrobbler",
+	"default_icon": "icon48.png"
+ },
+  "permissions": [
+    "*://*/"
+  ]
+}

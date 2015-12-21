@@ -1,0 +1,63 @@
+<html>
+<head><title>Synology Scrobbler options</title>
+<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="options.js"></script>
+
+
+</script>
+<style type="text/css">
+	@font-face {
+		font-family: nuvoweb;
+		src: url(/NuvoWeb-Medi.woff) format('woff');
+		font-weight: normal;
+		font-style: normal;
+	}	
+	body{font-family:nuvoweb;}
+	h1{font-family:nuvoweb;font-weight:normal;}	
+	h2{font-family:nuvoweb;font-weight:normal;}	
+	#container{width:500px;margin-left:25%;margin-right:25%;}
+	#logo{margin-left:50px;}
+	#diskstationUrl{width:250px;margin-left:4px;}
+	.light{color:#999;}
+	p{color:#333;}
+</style>
+</head>
+<body>
+<div id="container">
+	<img src="icon128.png" id="logo">
+	<h1>Synology Scrobbler 2.0</h1>
+
+	<span id="spinner" style="display:none">Initializing...</span>
+	<div id="urlsettingPanel" style="display:none;">
+		<p>You have successfully allowed Synology Scrobbler to send tracks to Last.FM :)</p>
+		<h2>Where is your Audio Station?</h2>
+		<p>In order to recognize the Audio Station player, you will have to enter the url of your Diskstation</p>
+		<label for="diskstationUrl" style="margin-left:52px;">Part of Diskstation URL</label><br/>
+		<span class="light">http(s)://</span><input type="text" id="diskstationUrl" name="diskstationUrl"> <button id="btnSaveSettings">Save</button> <span id="status"></span><br/>
+		<span class="light" style="margin-left:55px;">i.e. myserver.dyndns.org</span></br>
+		<span class="light" style="margin-left:55px;">i.e. myserver.gotdns.com:5000</span></br>
+		
+		<p>This is the string that the extension will match against the pages you visit to determine if it should try to extract songs from the page you're visiting.</p>
+		<p>By setting this address to "bungalow" Synology Scrobbler will try to extract songs from bungalow.com, my.bungalow-heaven and cowabungalow.co.uk</p>
+		
+		<h2>Note: AudioStation 5.x and MiniPlayer</h2>
+        <p>As AudioStation 5.0 has changed its interface, the scrobbler will not support scrobbling when using the Mini Player.<br>The Artist name has been removed from the player, preventing song identification.</p>
+	</div>
+	<div id="authenticationcompletepanel" style="display:none">
+		<h2>Authentication complete</h2>
+	</div>
+	<div id="sessioninfopanel" style="display:none">
+		You have connected with Last.fm, sessionkey: <span id="sessionKey"></span>	
+	</div>
+	<div id="authenticatepanel" style="display:none">
+		<h2>Last.FM Authentication</h2>
+		<p><a id="authenticateLink" target="_blank" href="http://" style="display:none;">Clicking here</a> will send you to Last.FM, where you will be asked to allow Synology Scrobbler to send tracks to your listening stream</p>
+		
+	</div>
+	<div style="margin-top:100px;" >
+	<!--<button id="btnResetData">Reset local storage</button></div>-->
+</div>
+
+</body>
+
+</html>
